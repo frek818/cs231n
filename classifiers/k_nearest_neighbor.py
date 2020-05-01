@@ -163,22 +163,21 @@ class KNearestNeighbor(object):
             # Hint: Look up the function numpy.argsort.                             #
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+            
+            y_indicies = np.argsort(dists[i, :], axis = 0)
+            closest_y = self.y_train[y_indicies[:k]]
 
-            k_nearest_idxs = np.argsort(dists[i, :])[:k]
-            print(k_nearest_idxs)
-            closest_y = self.y_train[k_nearest_idxs]
+            ## *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+            ##########################################################################
+            ## TODO:                                                                 #
+            ## Now that you have found the labels of the k nearest neighbors, you    #
+            ## need to find the most common label in the list closest_y of labels.   #
+            ## Store this label in y_pred[i]. Break ties by choosing the smaller     #
+            ## label.                                                                #
+            ##########################################################################
+            ## *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-            #########################################################################
-            # TODO:                                                                 #
-            # Now that you have found the labels of the k nearest neighbors, you    #
-            # need to find the most common label in the list closest_y of labels.   #
-            # Store this label in y_pred[i]. Break ties by choosing the smaller     #
-            # label.                                                                #
-            #########################################################################
-            # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-            pass
+            y_pred[i] = np.argmax(np.bincount(closest_y))
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
