@@ -164,7 +164,8 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
+            k_nearest_idxs = np.argsort(dists[i, :])[:k]
+            closest_y = self.y_train[k_nearest_idxs]
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
             #########################################################################
